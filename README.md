@@ -265,7 +265,7 @@ class TodoRepository {
 
 We firt desing one **Card** containing a **CardContent**
 
-
+![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp-advanced-with-fetching-data-/assets/32194879/edad4b50-c1ce-4a3c-997b-b8d9f837e6d2)
 
 **app/kotlin+java/com.example.myfetchapplication/ui/screens/Greeting.kt**
 
