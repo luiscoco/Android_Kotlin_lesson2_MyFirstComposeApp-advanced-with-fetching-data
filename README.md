@@ -195,7 +195,21 @@ This is the full code
 
 ## 5. Data Model
 
+**app/kotlin+java/com.example.myfetchapplication/data/model/Todo.kt**
 
+```kotlin
+package com.example.myfetchapplication.data.model
+
+import kotlinx.serialization.Serializable
+
+@Serializable
+data class Todo(
+    val userId: Int,
+    val id: Int,
+    val title: String,
+    val completed: Boolean
+)
+```
 
 
 
