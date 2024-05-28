@@ -542,14 +542,17 @@ fun TodoScreen(todoViewModel: TodoViewModel = viewModel()) {
 ```kotlin
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.runtime.Composable
-import com.example.myfetchapplication.ui.screens.TodoScreen
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
+import com.example.myfetchapplication.ui.screens.previews.GreetingsPreview
 import com.example.myfetchapplication.viewmodel.PreviewTodoViewModel
 
 @Preview(showBackground = true)
 @Composable
 fun TodoScreenPreview() {
     val todoViewModel = PreviewTodoViewModel()
-    TodoScreen(todoViewModel = todoViewModel)
+    val todos by todoViewModel.todos.observeAsState(emptyList())
+    GreetingsPreview()
 }
 ```
 
