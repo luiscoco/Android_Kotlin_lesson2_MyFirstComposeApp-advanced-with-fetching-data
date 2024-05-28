@@ -263,7 +263,11 @@ class TodoRepository {
 
 ### 8.1. Greeting
 
-We firt desing one **Card** containing a **CardContent**
+We firt desing a **Card** 
+
+![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp-advanced-with-fetching-data-/assets/32194879/f2c55330-cd05-48fa-a796-c99e679f8170)
+
+The **Card** contains the **CardContent**
 
 ![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp-advanced-with-fetching-data-/assets/32194879/edad4b50-c1ce-4a3c-997b-b8d9f837e6d2)
 
