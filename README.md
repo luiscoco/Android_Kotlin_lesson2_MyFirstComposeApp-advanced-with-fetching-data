@@ -1,4 +1,4 @@
-# How to fetch data from free API online
+# How to fetch data from free API from your Android Compose Kotlin application
 
 In this example I would explain you how to send a GET request to a public API endpoint from your Android Compose application to retrieve data from a server
 
