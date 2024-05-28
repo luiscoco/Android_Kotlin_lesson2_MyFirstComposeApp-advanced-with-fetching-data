@@ -22,6 +22,18 @@ https://jsonplaceholder.typicode.com/todos
 
 ## 3. Project Dependencies
 
+**build.gradle.kts**(Project:MyFetchApplication)
+
+```kotlin
+plugins {
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.jetbrains.kotlin.android) apply false
+    kotlin("jvm") version "1.6.10"
+    kotlin("plugin.serialization") version "1.6.10"
+    id("org.jetbrains.compose") version "1.6.10"
+}
+```
+
 **build.gradle.kts**(Module:app)
 
 ```kotlin
