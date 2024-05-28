@@ -267,6 +267,40 @@ class TodoRepository {
 }
 ```
 
+**app/kotlin+java/com.example.myfetchapplication/repository/PreviewTodoRepository.kt**
+
+```kotlin
+package com.example.myfetchapplication.repository
+
+import com.example.myfetchapplication.data.model.Todo
+
+class PreviewTodoRepository : TodoRepository() {
+    override suspend fun getTodos(): List<Todo> {
+        // Return mock data
+        return listOf(
+            Todo(
+                id = 1,
+                userId = 1,
+                title = "Preview Todo 1",
+                completed = false
+            ),
+            Todo(
+                id = 2,
+                userId = 2,
+                title = "Preview Todo 2",
+                completed = true
+            ),
+            Todo(
+                id = 3,
+                userId = 3,
+                title = "Preview Todo 3",
+                completed = false
+            )
+        )
+    }
+}
+```
+
 ## 8. User Interface (UI) Screens
 
 ### 8.1. Greeting
