@@ -86,7 +86,6 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -101,11 +100,21 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.4.0")
     implementation("androidx.compose.runtime:runtime-livedata:1.2.0-alpha01")
     implementation(libs.androidx.runtime.livedata)
+
+    // Required for previews
+    implementation("androidx.compose.ui:ui-tooling-preview:1.4.0")
+    implementation("androidx.compose.ui:ui-tooling:1.4.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1")
+    implementation("androidx.compose.material3:material3:1.0.1")
+
+    // Test dependencies
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
+
+    // Debug dependencies
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 }
@@ -140,7 +149,6 @@ dependencyResolutionManagement {
 rootProject.name = "MyFetchApplication"
 include(":app")
 ```
-
 
 ## 4. Add Internet Permission 
 
