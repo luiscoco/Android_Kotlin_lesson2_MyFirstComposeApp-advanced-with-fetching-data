@@ -648,12 +648,93 @@ fun MyFetchApplicationTheme(
 
 ## 9. ViewModel
 
+**app/kotlin+java/com.example.myfetchapplication/viewmodel/TodoViewModel.kt**
 
+```kotlin
+package com.example.myfetchapplication.viewmodel
 
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import com.example.myfetchapplication.data.model.Todo
+import com.example.myfetchapplication.repository.TodoRepository
 
+class TodoViewModel : ViewModel() {
+    private val repository = TodoRepository()
+    private val _todos = MutableLiveData<List<Todo>>()
+    val todos: LiveData<List<Todo>> get() = _todos
+
+    init {
+        fetchTodos()
+    }
+
+    private fun fetchTodos() {
+        viewModelScope.launch {
+            val fetchedTodos = repository.getTodos()
+            _todos.value = fetchedTodos
+        }
+    }
+}
+```
+
+**app/kotlin+java/com.example.myfetchapplication/viewmodel/PreviewTodoViewModel.kt**
+
+```kotlin
+package com.example.myfetchapplication.viewmodel
+
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import com.example.myfetchapplication.data.model.Todo
+import com.example.myfetchapplication.repository.TodoRepository
+import com.example.myfetchapplication.repository.PreviewTodoRepository
+
+class PreviewTodoViewModel : ViewModel() {
+    private val repository = PreviewTodoRepository()
+    private val _todos = MutableLiveData<List<Todo>>()
+    val todos: LiveData<List<Todo>> get() = _todos
+
+    init {
+        fetchTodos()
+    }
+
+    private fun fetchTodos() {
+        viewModelScope.launch {
+            val fetchedTodos = repository.getTodos()
+            _todos.value = fetchedTodos
+        }
+    }
+}
+```
 
 ## 10. MainActivity
 
+**app/kotlin+java/com.example.myfetchapplication/MainActivity.kt**
+
+```kotlin
+package com.example.myfetchapplication
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import com.example.myfetchapplication.ui.screens.TodoScreen
+import com.example.myfetchapplication.ui.theme.MyFetchApplicationTheme
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            MyFetchApplicationTheme {
+                TodoScreen()
+            }
+        }
+    }
+}
+```
 
 
 #
