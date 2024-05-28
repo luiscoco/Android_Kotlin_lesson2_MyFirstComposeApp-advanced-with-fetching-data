@@ -261,6 +261,12 @@ class TodoRepository {
 
 ## 8. User Interface (UI) Screens
 
+### 8.1. Greeting
+
+We firt desing one **Card** containing a **CardContent**
+
+
+
 **app/kotlin+java/com.example.myfetchapplication/ui/screens/Greeting.kt**
 
 ```kotlin
@@ -344,7 +350,36 @@ fun CardContent(todo: Todo) {
         }
     }
 }
+
+@Preview(showBackground = true)
+@Composable
+fun GreetingPreview() {
+    Greeting(
+        todo = Todo(
+            id = 1,
+            userId = 1,
+            title = "Example Todo",
+            completed = false
+        ),
+        modifier = Modifier
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+fun CardContentPreview() {
+    CardContent(
+        todo = Todo(
+            id = 1,
+            userId = 1,
+            title = "Example Todo",
+            completed = false
+        )
+    )
+}
 ```
+
+### 8.2. Greetings
 
 **app/kotlin+java/com.example.myfetchapplication/ui/screens/Greetings.kt**
 
@@ -369,6 +404,8 @@ fun Greetings(modifier: Modifier = Modifier, todos: List<Todo>) {
 }
 ```
 
+### 8.3. TodoScreen
+
 **app/kotlin+java/com.example.myfetchapplication/ui/screens/TodoScreen.kt**
 
 ```kotlin
@@ -386,6 +423,14 @@ fun TodoScreen(todoViewModel: TodoViewModel = viewModel()) {
     Greetings(todos = todos)
 }
 ```
+
+### 8.4. Theme
+
+
+
+
+
+
 
 ## 9. ViewModel
 
