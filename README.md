@@ -385,6 +385,8 @@ fun CardContentPreview() {
 
 ### 8.2. Greetings
 
+![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp-advanced-with-fetching-data-/assets/32194879/1b256a1d-cb1c-450e-97ef-c383dad5e082)
+
 **app/kotlin+java/com.example.myfetchapplication/ui/screens/Greetings.kt**
 
 ```kotlin
@@ -405,6 +407,36 @@ fun Greetings(modifier: Modifier = Modifier, todos: List<Todo>) {
             Greeting(todo = todo)
         }
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun GreetingsPreview() {
+    val sampleTodos = listOf(
+        Todo(
+            id = 1,
+            userId = 1,
+            title = "Example Todo 1",
+            completed = false
+        ),
+        Todo(
+            id = 2,
+            userId = 2,
+            title = "Example Todo 2",
+            completed = true
+        ),
+        Todo(
+            id = 3,
+            userId = 3,
+            title = "Example Todo 3",
+            completed = false
+        )
+    )
+
+    Greetings(
+        modifier = Modifier,
+        todos = sampleTodos
+    )
 }
 ```
 
