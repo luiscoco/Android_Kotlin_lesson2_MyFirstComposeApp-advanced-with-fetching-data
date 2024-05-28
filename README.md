@@ -396,6 +396,21 @@ fun CardContent(todo: Todo) {
         }
     }
 }
+```
+
+### 8.2. Greeting Preview
+
+**app/kotlin+java/com.example.myfetchapplication/ui/screens/previews/Greeting.kt**
+
+```kotlin
+package com.example.myfetchapplication.ui.screens.previews
+
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
+import com.example.myfetchapplication.data.model.Todo
+import com.example.myfetchapplication.ui.screens.CardContent
+import com.example.myfetchapplication.ui.screens.Greeting
 
 @Preview(showBackground = true)
 @Composable
@@ -425,7 +440,7 @@ fun CardContentPreview() {
 }
 ```
 
-### 8.2. Greetings
+### 8.3. Greetings
 
 ![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp-advanced-with-fetching-data-/assets/32194879/1b256a1d-cb1c-450e-97ef-c383dad5e082)
 
@@ -450,6 +465,20 @@ fun Greetings(modifier: Modifier = Modifier, todos: List<Todo>) {
         }
     }
 }
+```
+
+### 8.4. Greetings Preview
+
+**app/kotlin+java/com.example.myfetchapplication/ui/screens/preview/Greetings.kt**
+
+```kotlin
+package com.example.myfetchapplication.ui.screens.previews
+
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
+import com.example.myfetchapplication.data.model.Todo
+import com.example.myfetchapplication.ui.screens.Greetings
 
 @Preview(showBackground = true)
 @Composable
@@ -482,7 +511,7 @@ fun GreetingsPreview() {
 }
 ```
 
-### 8.3. TodoScreen
+### 8.5. TodoScreen
 
 **app/kotlin+java/com.example.myfetchapplication/ui/screens/TodoScreen.kt**
 
