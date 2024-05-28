@@ -253,9 +253,17 @@ object RetrofitInstance {
 
 ## 7. Data Repository
 
+**app/kotlin+java/com.example.myfetchapplication/repository/TodoRepository.kt**
 
+```kotlin
+package com.example.myfetchapplication.repository
 
+import com.example.myfetchapplication.data.network.RetrofitInstance
 
+class TodoRepository {
+    suspend fun getTodos() = RetrofitInstance.api.getTodos()
+}
+```
 
 ## 8. User Interface (UI) Screens
 
