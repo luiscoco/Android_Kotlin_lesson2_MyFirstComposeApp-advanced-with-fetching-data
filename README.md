@@ -8,10 +8,17 @@ https://jsonplaceholder.typicode.com/todos
 
 ## 1. Create a new Compose project in Android Studio
 
+We run Android Studio and we press the **New Project** button
 
+![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp-advanced-with-fetching-data-/assets/32194879/77e70d6c-0f24-407c-9e59-cf72aa9dd947)
 
+We select the **Empty Activity** template
 
+![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp-advanced-with-fetching-data-/assets/32194879/9e096923-b0a6-48c5-bb7a-8cacb1e7d6d8)
 
+We input the required data: project name, location, package name, minimum SDK, build configuration language
+
+![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp-advanced-with-fetching-data-/assets/32194879/a099bec2-88d3-4c6b-bf2b-61d041299ae5)
 
 ## 2. Project Folders and Files structure
 
