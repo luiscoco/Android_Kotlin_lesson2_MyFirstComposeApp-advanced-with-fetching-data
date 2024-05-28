@@ -19,6 +19,8 @@ https://jsonplaceholder.typicode.com/todos
 
 ## 3. Project Dependencies
 
+![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp-advanced-with-fetching-data-/assets/32194879/193265b9-8143-4e1f-9193-29d5c25016fd)
+
 **build.gradle.kts**(Project:MyFetchApplication)
 
 ```kotlin
