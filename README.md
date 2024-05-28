@@ -114,12 +114,40 @@ dependencies {
 }
 ```
 
+**settings.gradle.kts**
 
+```kotlin
+pluginManagement {
+    repositories {
+        google {
+            content {
+                includeGroupByRegex("com\\.android.*")
+                includeGroupByRegex("com\\.google.*")
+                includeGroupByRegex("androidx.*")
+            }
+        }
+        mavenCentral()
+        gradlePluginPortal()
+        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
+    }
+}
+
+rootProject.name = "MyFetchApplication"
+include(":app")
+```
 
 
 ## 4. Add Internet Permission 
 
-I it very important to highlight we add the following line of code in order to grant the application permission to access internet
+I it very important to highlight we added the following code in order to grant the application permission to access internet
 
 ```
 <!-- Internet permission to allow network requests -->
@@ -128,7 +156,7 @@ I it very important to highlight we add the following line of code in order to g
 
 This is the full code
 
-**AndroidManifest.xml**
+**app/manifests/AndroidManifest.xml**
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
