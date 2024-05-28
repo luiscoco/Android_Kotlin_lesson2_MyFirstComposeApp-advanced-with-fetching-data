@@ -15,7 +15,7 @@ https://jsonplaceholder.typicode.com/todos
 
 ## 2. Project Folders and Files structure
 
-![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp-advanced-with-fetching-data-/assets/32194879/a5eea515-a9c8-4f80-abe5-ebd1d8ea0aab)
+![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp-advanced-with-fetching-data-/assets/32194879/d5b49b4c-a05d-424b-b232-f4ffcef1b7ed)
 
 ## 3. Project Dependencies
 
