@@ -400,7 +400,7 @@ fun CardContent(todo: Todo) {
 
 ### 8.2. Greeting Preview
 
-**app/kotlin+java/com.example.myfetchapplication/ui/screens/previews/Greeting.kt**
+**app/kotlin+java/com.example.myfetchapplication/ui/screens/previews/GreetingPreview.kt**
 
 ```kotlin
 package com.example.myfetchapplication.ui.screens.previews
@@ -469,7 +469,7 @@ fun Greetings(modifier: Modifier = Modifier, todos: List<Todo>) {
 
 ### 8.4. Greetings Preview
 
-**app/kotlin+java/com.example.myfetchapplication/ui/screens/preview/Greetings.kt**
+**app/kotlin+java/com.example.myfetchapplication/ui/screens/preview/GreetingsPreview.kt**
 
 ```kotlin
 package com.example.myfetchapplication.ui.screens.previews
@@ -513,6 +513,8 @@ fun GreetingsPreview() {
 
 ### 8.5. TodoScreen
 
+![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp-advanced-with-fetching-data-/assets/32194879/7aab6798-7a01-4f10-8069-2a8455ed35b9)
+
 **app/kotlin+java/com.example.myfetchapplication/ui/screens/TodoScreen.kt**
 
 ```kotlin
@@ -531,7 +533,25 @@ fun TodoScreen(todoViewModel: TodoViewModel = viewModel()) {
 }
 ```
 
-### 8.4. Theme
+### 8.5. TodoScreen Preview
+
+**app/kotlin+java/com.example.myfetchapplication/ui/screens/TodoScreenPreview.kt**
+
+```kotlin
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.runtime.Composable
+import com.example.myfetchapplication.ui.screens.TodoScreen
+import com.example.myfetchapplication.viewmodel.PreviewTodoViewModel
+
+@Preview(showBackground = true)
+@Composable
+fun TodoScreenPreview() {
+    val todoViewModel = PreviewTodoViewModel()
+    TodoScreen(todoViewModel = todoViewModel)
+}
+```
+
+### 8.7. Theme
 
 
 
