@@ -15,10 +15,7 @@ https://jsonplaceholder.typicode.com/todos
 
 ## 2. Project Folders and Files structure
 
-
 ![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp-advanced-with-fetching-data-/assets/32194879/a5eea515-a9c8-4f80-abe5-ebd1d8ea0aab)
-
-
 
 ## 3. Project Dependencies
 
@@ -192,7 +189,6 @@ This is the full code
 </manifest>
 ```
 
-
 ## 5. Data Model
 
 **app/kotlin+java/com.example.myfetchapplication/data/model/Todo.kt**
@@ -210,8 +206,6 @@ data class Todo(
     val completed: Boolean
 )
 ```
-
-
 
 ## 6. API Service
 
@@ -267,9 +261,131 @@ class TodoRepository {
 
 ## 8. User Interface (UI) Screens
 
+**app/kotlin+java/com.example.myfetchapplication/ui/screens/Greeting.kt**
 
+```kotlin
+package com.example.myfetchapplication.ui.screens
 
+import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.spring
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.KeyboardArrowDown
+import androidx.compose.material.icons.filled.KeyboardArrowUp
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.Text
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.ui.res.stringResource
+import com.example.myfetchapplication.R
+import com.example.myfetchapplication.data.model.Todo
 
+@Composable
+fun Greeting(todo: Todo, modifier: Modifier = Modifier) {
+    Card(
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.primary
+        ),
+        modifier = modifier.padding(vertical = 4.dp, horizontal = 8.dp)
+    ) {
+        CardContent(todo)
+    }
+}
+
+@Composable
+fun CardContent(todo: Todo) {
+    var expanded by rememberSaveable { mutableStateOf(false) }
+
+    Row(
+        modifier = Modifier
+            .padding(12.dp)
+            .animateContentSize(
+                animationSpec = spring(
+                    dampingRatio = Spring.DampingRatioMediumBouncy,
+                    stiffness = Spring.StiffnessLow
+                )
+            )
+    ) {
+        Column(
+            modifier = Modifier
+                .weight(1f)
+                .padding(12.dp)
+        ) {
+            Text(text = "Todo ID: ${todo.id}")
+            Text(
+                text = todo.title,
+                style = MaterialTheme.typography.headlineMedium.copy(
+                    fontWeight = FontWeight.ExtraBold
+                )
+            )
+            if (expanded) {
+                Text(
+                    text = "Completed: ${todo.completed}",
+                )
+            }
+        }
+        IconButton(onClick = { expanded = !expanded }) {
+            Icon(
+                imageVector = if (expanded) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown,
+                contentDescription = if (expanded) {
+                    stringResource(id = R.string.show_less)
+                } else {
+                    stringResource(id = R.string.show_more)
+                }
+            )
+        }
+    }
+}
+```
+
+**app/kotlin+java/com.example.myfetchapplication/ui/screens/Greetings.kt**
+
+```kotlin
+package com.example.myfetchapplication.ui.screens
+
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import androidx.compose.foundation.lazy.items
+import com.example.myfetchapplication.data.model.Todo
+
+@Composable
+fun Greetings(modifier: Modifier = Modifier, todos: List<Todo>) {
+    LazyColumn(modifier = modifier.padding(vertical = 4.dp)) {
+        items(items = todos) { todo ->
+            Greeting(todo = todo)
+        }
+    }
+}
+```
+
+**app/kotlin+java/com.example.myfetchapplication/ui/screens/TodoScreen.kt**
+
+```kotlin
+package com.example.myfetchapplication.ui.screens
+
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.myfetchapplication.viewmodel.TodoViewModel
+
+@Composable
+fun TodoScreen(todoViewModel: TodoViewModel = viewModel()) {
+    val todos by todoViewModel.todos.observeAsState(emptyList())
+    Greetings(todos = todos)
+}
+```
 
 ## 9. ViewModel
 
