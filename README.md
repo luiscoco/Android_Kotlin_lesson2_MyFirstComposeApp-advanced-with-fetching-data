@@ -215,9 +215,41 @@ data class Todo(
 
 ## 6. API Service
 
+**app/kotlin+java/com.example.myfetchapplication/data/network/ApiService.kt**
 
+```kotlin
+package com.example.myfetchapplication.data.network
 
+import com.example.myfetchapplication.data.model.Todo
+import retrofit2.http.GET
 
+interface ApiService {
+    @GET("todos")
+    suspend fun getTodos(): List<Todo>
+}
+```
+
+**app/kotlin+java/com.example.myfetchapplication/data/network/RetrofitInstance.kt**
+
+```kotlin
+package com.example.myfetchapplication.data.network
+
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+
+object RetrofitInstance {
+    private val retrofit by lazy {
+        Retrofit.Builder()
+            .baseUrl("https://jsonplaceholder.typicode.com/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+    }
+
+    val api: ApiService by lazy {
+        retrofit.create(ApiService::class.java)
+    }
+}
+```
 
 ## 7. Data Repository
 
