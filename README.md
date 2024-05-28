@@ -746,5 +746,16 @@ class MainActivity : ComponentActivity() {
 }
 ```
 
+## 11.  How to run the application
 
-#
+As prerequesite we have to install the **Android Virtual Device (AVD)** in Android Studio
+
+We fist press the **Run app** button and the **Running Devices** button
+
+![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp-advanced-with-fetching-data-/assets/32194879/5218e13d-10af-40ed-9aa6-dae77d19e3e6)
+
+We can verify the application running
+
+![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp-advanced-with-fetching-data-/assets/32194879/6f98c540-fc95-4100-8ad1-1adb54496dcb)
+
+
